@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<nav>
+    <ul style="list-style: none;">
+        <li style="float: left;margin-right: 2em;margin-top: -1.3em;font-size: .8em"><h1>Lazy Blog</h1></li>
+        <li style="float: left;margin-left: 1em"><a href="/">Home</a></li>
+        <li style="float: left;margin-left: 1em"><a href="/admin/">Login</a></li>
+        <li style="float: left;margin-left:1em"><a href="/">Register</a></li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    </nav>
+<br>
+<header>
+    <div style="margin: 0 auto;display: block;max-width: 80%;;background-color:lightsteelblue;color: #333;padding-top: 4%;padding-bottom: 4%;text-align: center">
+        <b><h2>This blog is concerned with everything that makes lazy people's lifes BETTER !</h2></b>
+        </div>
+</header>
+<br>
+{% block content %}
+{% endblock %}
+</body>
+</html>

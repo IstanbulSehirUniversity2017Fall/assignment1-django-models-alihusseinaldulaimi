@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Lazy Bloggers{% endblock %}
+{% block content %}
+    <div class="header"></div>
+    <div class="content" style="max-width: 80%;margin: 0 auto;margin-top: 2em">
+        <div class="articles-side" style="max-width: 70%;min-width: 70%;background-color:#f3f3f3;float: left;">
+                {% for article in articles %}
+                    <div class="container" style="max-width: 80%;padding: 1.2em;font-size: 1em">
+                        <h3 style="font-size: 2em;text-decoration: none;color: darkblue;"><a href="{% url 'blog:article' article.id %}" style="text-decoration: none;color: darkblue">{{ article.title }}</a></h3>
+                        <br>
+                        <br>
+                        <span>{{ article.date }}</span>
+                        <br>
+                        <br>
+                        <span>Tags : <b><a href="/blog/{{ article.tag.title  }}">{{ article.tag.title  }}</a></b></span>
+                        <br>
+                        <br>
+                        <span>Author : {{ article.author }}</span>
+                        <br>
+                         <br>
+                        <img src="{{ article.article_image }}" style="width: 60%;height: 25%;float: left;margin-right: 2em;margin-top: 3em">
+                        <br>
+                        <br>
+                        <p style="line-height: 2em;font-size: 1.3em;font-family: sans-serif;margin: 0 auto;">{{ article.text }}</p>
+                    </div>
+                {% endfor %}
+        </div>
+        <div class="tags-side" style="float: right;background-color:#f3f3f3;min-width: 28%;text-align: center">
+            <p style="padding: 0 auto;font-size: 2.3em">Lazy Tags</p>
+            {% for tag in tags %}
+                <a href="/blog/{{ tag.title }}" style="text-decoration: none;color: midnightblue;font-size: 1.5em"><b>{{ tag.title }}</b></a>
+                <br>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
